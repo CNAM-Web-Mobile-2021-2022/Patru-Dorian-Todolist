@@ -2,12 +2,16 @@ import {
   IonContent,
   IonHeader,
   IonPage,
+  IonToolbar,
+  IonButton,
+  IonLabel,
+  IonItem,
+  IonList,
   IonSegment,
   IonSegmentButton,
-  IonLabel,
-  IonList,
-  IonItem,
-  IonInput
+  IonFooter,
+  IonInput,
+  //IonBadge,
 } from "@ionic/react";
 import "./Home.css";
 
@@ -15,18 +19,21 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonSegment
-          mode="ios"
-          onIonChange={(e) => console.log("Segment selected", e.detail.value)}
-        >
-          <IonSegmentButton value="afaire">
-            <IonLabel>À faire</IonLabel>
-          </IonSegmentButton>
-          <IonSegmentButton value="tous">
-            <IonLabel>Tous</IonLabel>
-          </IonSegmentButton>
-        </IonSegment>
+        <IonToolbar>
+          <IonSegment
+            mode="ios"
+            onIonChange={(e) => console.log("Segment selected", e.detail.value)}
+          >
+            <IonSegmentButton value="afaire">
+              <IonLabel>À faire</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="tous">
+              <IonLabel>Tous</IonLabel>
+            </IonSegmentButton>
+          </IonSegment>
+        </IonToolbar>
       </IonHeader>
+
       <IonContent fullscreen>
         <IonList>
           <IonItem>
@@ -46,16 +53,17 @@ const Home: React.FC = () => {
           </IonItem>
         </IonList>
       </IonContent>
-      <footer>
+
+      <IonFooter>
         <IonItem>
           <IonInput
-            /*value={text}*/
-            placeholder="Entrer une tâche"
-            /*onIonChange={(e) => setText(e.detail.value!)}*/
+            value="nouvelletache"
+            placeholder="Qu'avez-vous en tête ?"
             clearInput
-          ></IonInput>
+          />
+          <IonButton type="submit">Créer</IonButton>
         </IonItem>
-      </footer>
+      </IonFooter>
     </IonPage>
   );
 };
